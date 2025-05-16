@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Giovanna Paiva - Médica Veterinária | Pesquisa | Acupuntura</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuração personalizada do Tailwind para cores e fontes
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Cores da paleta consistente e refinada
+                        'theme-primary': '#004777', // Azul Profundo Acadêmico
+                        'theme-primary-darker': '#003355', // Azul mais escuro
+                        'theme-secondary': '#F0EAD6', // Bege Claro
+                        'theme-accent': '#0A9396', // Teal Vibrante (para CTAs)
+                        'theme-accent-darker': '#097D80', // Teal mais escuro para hover
+                        'theme-text': '#333', // Cor de texto principal
+                        'theme-heading': '#004777', // Cor para títulos principais
+                        'theme-subheading': '#4F4F4F', // Cor para subtítulos
+                         'theme-light-bg': '#F9F9F9', // Fundo leve para seções
+                         'theme-dark-bg': '#003355', // Fundo escuro para contraste (opcional, ex: footer)
+                         'theme-green-subtle': '#D4E9D7', // Novo verde suave para fundos/elementos secundários
+                         'theme-green-subtle-darker': '#B0D8B6', // Variação mais escura do verde suave
+                         // Cores para ícones flutuantes
+                         'whatsapp-float': '#25D366',
+                         'instagram-float': '#A66C8F',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Inter', 'sans-serif'], // Fonte principal Inter
+                        // Exemplo de adição de uma segunda fonte para títulos (descomente para usar)
+                        // heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos personalizados adicionais */
+        body {
+            font-family: 'Inter', sans-serif; /* Aplica a fonte principal */
+            color: #333; /* Cor de texto padrão */
+            line-height: 1.6;
+            background-color: #F0EAD6; /* Cor de fundo secundária */
+        }
+        h1, h2, h3 {
+             /* Aplica a fonte principal ou 'heading' se descomentar */
+             font-family: 'Inter', sans-serif;
+             /* font-family: 'Montserrat', sans-serif; */
+             color: #004777; /* Azul Profundo Acadêmico */
+        }
+        /* Estilo para seções com fundo claro */
+        .section-light {
+            background-color: #F9F9F9;
+            padding: 60px 20px; /* Padding ajustado para mobile e desktop */
+        }
+         /* Estilo para seções com fundo bege */
+        .section-secondary {
+            background-color: #F0EAD6;
+            padding: 60px 20px;
+        }
+         /* Estilo para seções com fundo verde suave (novo) */
+        .section-green-subtle {
+            background-color: #D4E9D7; /* Novo verde suave */
+            padding: 60px 20px;
+        }
+        .container {
+            max-width: 1200px; /* Largura máxima maior para um site */
+            margin: 0 auto;
+            padding: 0 20px; /* Padding horizontal */
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: #0A9396; /* Teal Vibrante */
+            color: white;
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary:hover {
+             background-color: #097D80; /* Teal mais escuro */
+             transform: translateY(-2px);
+             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        /* Estilos para ícones em seções */
+        .icon-large {
+            font-size: 3rem;
+            color: #004777; /* Azul Primário */
+            margin-bottom: 15px;
+        }
+
+        /* Estilos para ícones flutuantes */
+        .floating-icons {
+            position: fixed;
+            bottom: 20px; /* Distância do fundo */
+            right: 20px; /* Distância da direita */
+            z-index: 1000; /* Garante que fiquem acima de outros elementos */
+            display: flex;
+            flex-direction: column; /* Ícones empilhados verticalmente */
+            align-items: center;
+        }
+        .floating-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px; /* Tamanho do círculo */
+            height: 50px; /* Tamanho do círculo */
+            border-radius: 50%; /* Forma de círculo */
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 10px; /* Espaço entre os ícones */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .floating-icon:hover {
+            transform: scale(1.1); /* Efeito de zoom no hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .whatsapp-float {
+            background-color: #25D366; /* Verde WhatsApp */
+        }
+        .instagram-float {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); /* Gradiente Instagram */
+        }
+
+        /* Estilos para Testemunhos */
+        .testimonial-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: left;
+            position: relative;
+        }
+         .testimonial-card i.fas.fa-quote-left {
+             position: absolute;
+             top: 15px;
+             left: 15px;
+             font-size: 2rem;
+             color: #eee; /* Cor clara para o ícone de citação */
+             z-index: 0;
+         }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+            position: relative; /* Para garantir que o texto fique acima do ícone */
+            z-index: 1;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            color: #004777; /* Cor primária */
+            text-align: right;
+        }
+
+        /* Estilos para Publicações */
+        .publication-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            margin-bottom: 15px;
+        }
+        .publication-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #003355; /* Azul mais escuro */
+            margin-bottom: 5px;
+        }
+        .publication-item p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .publication-item a {
+            color: #0A9396; /* Teal Vibrante */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .publication-item a:hover {
+            color: #097D80; /* Teal mais escuro */
+            text-decoration: underline;
+        }
+
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .section-light, .section-secondary, .section-green-subtle {
+                padding: 40px 15px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+             h3 {
+                font-size: 1.3rem;
+            }
+             .icon-large {
+                 font-size: 2.5rem;
+             }
+             .floating-icons {
+                 bottom: 15px;
+                 right: 15px;
+             }
+             .floating-icon {
+                 width: 45px;
+                 height: 45px;
+                 font-size: 1.6rem;
+                 margin-bottom: 8px;
+             }
+             .testimonial-card {
+                 padding: 20px;
+             }
+              .testimonial-card i.fas.fa-quote-left {
+                  font-size: 1.5rem;
+              }
+              .publication-item {
+                  padding: 12px;
+              }
+               .publication-item h4 {
+                   font-size: 1rem;
+               }
+                .publication-item p {
+                    font-size: 0.9rem;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-white shadow-md py-4">
+        <div class="container flex justify-between items-center">
+            <div class="text-xl font-bold text-theme-primary">
+                 Dra. Giovanna Paiva
+                 </div>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#sobre" class="text-theme-text hover:text-theme-primary-darker font-semibold">Sobre</a></li>
+                    <li><a href="#atuacao" class="text-theme-text hover:text-theme-primary-darker font-semibold">Atuação</a></li>
+                    <li><a href="giovanna_research_page_02.html" class="text-theme-text hover:text-theme-primary-darker font-semibold">Pesquisa</a></li>
+                    <li><a href="#testemunhos" class="text-theme-text hover:text-theme-primary-darker font-semibold">Testemunhos</a></li>
+                    <li><a href="#publicacoes" class="text-theme-text hover:text-theme-primary-darker font-semibold">Publicações</a></li>
+                    <li><a href="#contato" class="text-theme-text hover:text-theme-primary-darker font-semibold">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bg-theme-secondary py-20">
+        <div class="container flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight text-theme-heading mb-4">
+                    Dra. Giovanna Paiva <br> Médica Veterinária
+                </h1>
+                <p class="text-lg text-theme-text mb-6">
+                    Combinando ciência, inovação e cuidado para o bem-estar animal.
+                </p>
+                <a href="#contato" class="btn-primary">Entrar em Contato</a>
+            </div>
+            <div class="md:w-1/2 text-center">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQG-m_odOakApQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730681482144?e=1752710400&v=beta&t=dTjtmF6ojZXuVG5Aa--O_xwTbJhACC6fRlxsiIhdyy8" alt="Foto Dra. Giovanna Paiva" class="rounded-full w-64 h-64 object-cover mx-auto shadow-lg">
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="section-light">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-8">Sobre Mim</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 text-center mb-6 md:mb-0 md:pr-8">
+                     <img src="https://placehold.co/400x400/0A9396/FFFFFF?text=Dra.+Giovanna+e+Pet+ou+Pesquisa" alt="Dra. Giovanna Paiva e Pet ou Pesquisa" class="rounded-lg w-48 h-48 object-cover mx-auto shadow">
+                     </div>
+                <div class="md:w-2/3">
+                    <p class="text-theme-text mb-4">
+                        Médica Veterinária e mestranda na Universidade Federal da Paraíba (UFPB), a Dra. Giovanna Paiva dedica sua carreira ao avanço da saúde e bem-estar animal. Com uma base sólida em medicina veterinária geral, ela se especializou em áreas que promovem abordagens terapêuticas integrativas e inovadoras.
+                    </p>
+                    <p class="text-theme-text mb-4">
+                        Sua paixão pela pesquisa a levou a explorar temas de grande relevância, com foco especial nos <strong>Cannabinoides Medicinais</strong> e seu potencial no tratamento de diversas condições em pets, sempre buscando validação científica e segurança para os animais.
+                    </p>
+                    <p class="text-theme-text">
+                        Além da pesquisa, a Dra. Giovanna atua na área de <strong>Acupuntura Veterinária</strong>, utilizando essa técnica milenar para aliviar a dor, promover a recuperação e melhorar a qualidade de vida de seus pacientes. Sua prática clínica é pautada pelo cuidado individualizado e pela busca pelas melhores opções de tratamento para cada animal.
+                    </p>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="atuacao" class="section-secondary">
+        <div class="container text-center">
+            <h2 class="text-3xl font-bold mb-8">Áreas de Atuação e Interesse</h2>
+            <div class="flex flex-wrap justify-center -mx-4">
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <i class="fas fa-paw icon-large"></i>
+                    <h3 class="text-xl font-semibold mb-3">Acupuntura Veterinária</h3>
+                    <p class="text-theme-text">
+                        Utilização da acupuntura para tratamento de dor, problemas neurológicos, gastrointestinais e promoção do bem-estar geral.
+                    </p>
+                    </div>
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <i class="fas fa-leaf icon-large"></i>
+                    <h3 class="text-xl font-semibold mb-3">Cannabinoides Medicinais</h3>
+                    <p class="text-theme-text">
+                        Pesquisa e estudo do potencial terapêutico de compostos da cannabis para diversas condições em animais.
+                    </p>
+                     <a href="giovanna_research_page_02.html" class="text-theme-primary hover:underline mt-3 inline-block font-semibold">Ver Pesquisas</a>
+                </div>
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <i class="fas fa-flask icon-large"></i>
+                    <h3 class="text-xl font-semibold mb-3">Pesquisa e Academia</h3>
+                    <p class="text-theme-text">
+                        Atuação como mestranda na UFPB, contribuindo para o avanço do conhecimento científico em medicina veterinária.
+                    </p>
+                     <a href="http://lattes.cnpq.br/8429123900771171" target="_blank" class="text-theme-primary hover:underline mt-3 inline-block font-semibold">Acessar Lattes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="testemunhos" class="section-green-subtle"> <div class="container">
+             <h2 class="text-3xl font-bold text-center mb-8">O Que Dizem Sobre Meu Trabalho</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                 <div class="testimonial-card">
+                     <i class="fas fa-quote-left"></i>
+                     <p>"A Dra. Giovanna cuidou do meu pet com um carinho e profissionalismo incríveis. A acupuntura fez uma diferença enorme na qualidade de vida dele. Recomendo muito!"</p>
+                     <div class="testimonial-author">- Tutor Satisfeito 1</div>
+                 </div>
+                  <div class="testimonial-card">
+                      <i class="fas fa-quote-left"></i>
+                     <p>"Fiquei impressionado com o conhecimento da Dra. Giovanna sobre cannabinoides medicinais. Ela explicou tudo de forma clara e o tratamento tem sido muito eficaz para o meu animalzinho."</p>
+                     <div class="testimonial-author">- Tutor Satisfeito 2</div>
+                 </div>
+                 </div>
+         </div>
+     </section>
+
+     <section id="publicacoes" class="section-light"> <div class="container">
+             <h2 class="text-3xl font-bold text-center mb-8">Publicações e Produção Acadêmica</h2>
+             <p class="text-theme-text text-center max-w-prose mx-auto mb-8">
+                 Minha atuação na pesquisa e academia resulta em publicações e apresentações em eventos científicos. Explore alguns dos temas e acesse meu currículo completo.
+             </p>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 <div class="publication-item">
+                     <h4>Efeitos da Acupuntura na Qualidade Seminal em Cães</h4>
+                     <p>Resumo do trabalho apresentado em congresso.</p>
+                     </div>
+                  <div class="publication-item">
+                     <h4>Avaliação de Farmacopuntura em Equinos</h4>
+                     <p>Detalhes sobre o estudo com Xilazina e Detomidina no acuponto VG1.</p>
+                     </div>
+                 </div>
+              <div class="text-center mt-8">
+                 <a href="http://lattes.cnpq.br/8429123900771171" target="_blank" class="btn-primary">Acessar Currículo Lattes Completo</a>
+             </div>
+         </div>
+     </section>
+
+
+    <section id="contato" class="section-secondary"> <div class="container text-center">
+            <h2 class="text-3xl font-bold mb-8">Entre em Contato</h2>
+            <p class="text-theme-text mb-8 max-w-prose mx-auto">
+                Se você busca um atendimento veterinário especializado, tem interesse em minhas pesquisas ou deseja colaborar, entre em contato pelos canais abaixo:
+            </p>
+            <div class="flex flex-wrap justify-center -mx-4">
+                <div class="w-full md:w-1/3 px-4 mb-6">
+                    <a href="https://wa.me/5581999513952" target="_blank" class="btn-primary w-full flex items-center justify-center whatsapp-gradient">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                </div>
+                <div class="w-full md:w-1/3 px-4 mb-6">
+                     <a href="mailto:giovannapaiva.vet@gmail.com" class="btn-primary w-full flex items-center justify-center email-gradient">
+                        <i class="far fa-envelope mr-2"></i> Email
+                    </a>
+                </div>
+                 <div class="w-full md:w-1/3 px-4 mb-6">
+                     <a href="https://instagram.com/giovannavet" target="_blank" class="btn-primary w-full flex items-center justify-center instagram-gradient">
+                        <i class="fab fa-instagram mr-2"></i> Instagram
+                    </a>
+                </div>
+            </div>
+             </div>
+    </section>
+
+    <footer class="bg-theme-primary py-8 text-white text-center">
+        <div class="container">
+            <p>&copy; 2024 Dra. Giovanna Paiva. Todos os direitos reservados.</p>
+            </div>
+    </footer>
+
+    <div class="floating-icons">
+        <a href="https://wa.me/5581999513952" target="_blank" class="floating-icon whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/giovannavet" target="_blank" class="floating-icon instagram-float">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+</body>
+</html>
