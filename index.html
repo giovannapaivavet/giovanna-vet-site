@@ -26,10 +26,10 @@
                          'theme-dark-bg': '#003355', // Fundo escuro para contraste (opcional, ex: footer)
                          'theme-green-subtle': '#D4E9D7', // Novo verde suave para fundos/elementos secundários
                          'theme-green-subtle-darker': '#B0D8B6', // Variação mais escura do verde suave
-                         // Cores para botões de contato direto
+                         // Cores para botões de contato direto (mantidas)
                          'whatsapp-btn': '#25D366',
-                         'instagram-btn': '#A66C8F', // Mantido do float para consistência
-                         'email-btn': '#EA4335', // Vermelho Google para email
+                         'instagram-btn': '#A66C8F',
+                         'email-btn': '#EA4335',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'], // Fonte principal Inter
@@ -84,20 +84,27 @@
             margin-bottom: 20px;
         }
 
+        /* Estilo para o container dos botões de ícone */
+        .contact-buttons-container {
+            display: flex;
+            justify-content: center; /* Centraliza os botões */
+            gap: 15px; /* Espaço entre os botões */
+            margin-top: 20px; /* Espaço acima dos botões */
+            flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas pequenas */
+        }
+
         .contact-button {
-            display: flex; /* Para alinhar ícone e texto */
+            display: flex; /* Para alinhar ícone */
             align-items: center;
             justify-content: center;
-            width: 100%; /* Botões ocupam a largura total do container */
-            padding: 8px 15px; /* Padding ajustado para botões menores */
-            margin-bottom: 15px; /* Espaço entre os botões */
-            border-radius: 8px;
+            width: 60px; /* Tamanho fixo para o botão quadrado */
+            height: 60px; /* Tamanho fixo para o botão quadrado */
+            border-radius: 12px; /* Bordas arredondadas (não totalmente) */
             text-decoration: none;
-            font-weight: 600;
             color: white;
             transition: opacity 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-             font-size: 0.95rem; /* Tamanho da fonte ajustado */
+             font-size: 2rem; /* Tamanho do ícone */
         }
 
         .contact-button:hover {
@@ -115,10 +122,6 @@
          }
          .instagram-button {
              background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); /* Gradiente Instagram */
-         }
-
-         .contact-button i {
-             margin-right: 10px; /* Espaço entre ícone e texto */
          }
 
          /* Removendo header e footer para um visual mais limpo */
@@ -158,9 +161,12 @@
             .icon-tools {
                 font-size: 3.5rem;
             }
+            /* Ajuste para o tamanho dos botões de ícone em mobile */
             .contact-button {
-                padding: 6px 12px; /* Padding ainda menor para mobile */
-                font-size: 0.85rem; /* Fonte menor para mobile */
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+                border-radius: 10px;
             }
              .floating-icons {
                  bottom: 10px;
@@ -189,15 +195,17 @@
              Enquanto isso, você pode entrar em contato ou seguir nas redes sociais:
          </p>
 
-        <a href="https://wa.me/5583981628225" target="_blank" class="contact-button whatsapp-button">
-            <i class="fab fa-whatsapp"></i> WhatsApp: (83) 98162-8225
-        </a>
-        <a href="mailto:giovannapaiva.vet@gmail.com" class="contact-button email-button">
-            <i class="far fa-envelope"></i> Email: giovannapaiva.vet@gmail.com
-        </a>
-        <a href="https://instagram.com/giovannavet" target="_blank" class="contact-button instagram-button">
-            <i class="fab fa-instagram"></i> Instagram: @giovannavet
-        </a>
+        <div class="contact-buttons-container">
+            <a href="https://wa.me/5583981628225" target="_blank" class="contact-button whatsapp-button">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:giovannapaiva.vet@gmail.com" class="contact-button email-button">
+                <i class="far fa-envelope"></i>
+            </a>
+            <a href="https://instagram.com/giovannavet" target="_blank" class="contact-button instagram-button">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
 
     </div>
 
